@@ -136,8 +136,13 @@ db.connect((err) => {
         console.log('unable to connect to database Broh');
         process.exit()
     }else{
-        app.listen(8080, function() {
+    //For the localhost enviroment
+/*         app.listen(8080, function() {
             console.log("This server is runing in PORT 8080 Broh!, and the DB is also running")
-        });
+        }); */ 
+    // For the Cloud on Heroku
+    app.listen(process.env.PORT, process.env.IP, function(){
+        console.log("RichardCamp is open!");
+    });    
     }
 });
